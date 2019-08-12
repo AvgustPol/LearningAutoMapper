@@ -14,7 +14,7 @@ Simple program to understand the difference between these two cases:
 **Dest d1 = new Dest(); < - - - the main difference !**  
 d1.MyProperty1 = source.MyProperty1  
 d1.MyProperty2 = source.MyProperty2  
-return *d1*;
+return **d1**;
 
 ### Flow for *[ mapper.Map<Source, Destination>(source, destination); ]*
 
