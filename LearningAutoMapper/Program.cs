@@ -5,6 +5,19 @@ namespace LearningAutoMapper
 {
     public class Program
     {
+        //Flow for [dest = mapper.Map<Source, Dest>(source);]
+
+        //Dest d = new Dest();      < - - -the main difference !         
+
+        //d1.MyProperty1 = source.MyProperty1
+        //d1.MyProperty2 = source.MyProperty2
+
+
+        //Flow for [mapper.Map<Source, Destination>(source, dest);]
+
+        //destination.MyProperty1 = source.MyProperty1
+        //destination.MyProperty2 = source.MyProperty2
+        
         private static void Main(string[] args)
         {
             var config = new MapperConfiguration(cfg => {
@@ -22,21 +35,9 @@ namespace LearningAutoMapper
             TestCase2(mapper); // mapper.Map<Source, Dest>(source, dest); 
                                // используется, когда для нас важно сохранить данные, которые есть в dest, но их нет в source 
                                // пример - MyProperty3 в source отсуствует и если мы не хотим, чтобы она создавалась заново со значением default(MyProperty3) , то используем этот подход 
-
-
-            //Flow for [dest = mapper.Map<Source, Dest>(source);]
-
-            //Dest d = new Dest();                                                < - - -the main difference !
-
-            //d1.MyProperty1 = source.MyProperty1
-            //d1.MyProperty2 = source.MyProperty2
-
-
-            //Flow for [dest = mapper.Map<Source, Dest>(source, destination);]
-
-            //destination.MyProperty1 = source.MyProperty1
-            //destination.MyProperty2 = source.MyProperty2
         }
+        
+        
 
         private static void TestCase1(IMapper mapper)
         {
